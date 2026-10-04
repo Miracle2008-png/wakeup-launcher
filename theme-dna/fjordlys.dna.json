@@ -19,9 +19,9 @@
   "time": {
     "keys": [
       { "t": 0.0, "key": "oklch(0.82 0.06 70)", "ambient": "oklch(0.70 0.04 240)", "warmth": 0.0, "sky": ["#c9d3dc", "#e8d9c6"] },
-      { "t": 0.5, "key": "oklch(0.90 0.02 95)", "ambient": "oklch(0.78 0.05 235)", "warmth": 0.0, "sky": ["#a9bccb", "#d3dbe0"] },
-      { "t": 0.74, "key": "oklch(0.72 0.11 45)", "ambient": "oklch(0.45 0.06 270)", "warmth": 0.6, "sky": ["#3b4a63", "#c98a62"] },
-      { "t": 0.9, "key": "oklch(0.40 0.04 255)", "ambient": "oklch(0.25 0.04 260)", "warmth": 1.0, "sky": ["#0f1826", "#24324a"] }
+      { "t": 0.22, "key": "oklch(0.90 0.02 95)", "ambient": "oklch(0.78 0.05 235)", "warmth": 0.0, "sky": ["#a9bccb", "#d3dbe0"] },
+      { "t": 0.48, "key": "oklch(0.72 0.11 45)", "ambient": "oklch(0.45 0.06 270)", "warmth": 0.6, "sky": ["#3b4a63", "#c98a62"] },
+      { "t": 0.58, "key": "oklch(0.40 0.04 255)", "ambient": "oklch(0.25 0.04 260)", "warmth": 1.0, "sky": ["#0f1826", "#24324a"] }
     ]
   },
   "weather": {
@@ -51,7 +51,7 @@
   "layout": { "grid": [5, 6], "dock": 4 },
   "moments": [
     { "id": "loon-crosses", "trigger": "dusk", "cooldownMin": 40, "probability": 0.1, "durationS": 9, "minIntensity": 2 },
-    { "id": "cabin-lights-on", "trigger": "t>0.76", "cooldownMin": 1440, "probability": 0.2, "durationS": 6, "minIntensity": 2 },
+    { "id": "cabin-lights-on", "trigger": "t>0.5", "cooldownMin": 1440, "probability": 0.2, "durationS": 6, "minIntensity": 2 },
     { "id": "light-breaks-cloud", "trigger": "weather:clearing", "cooldownMin": 60, "probability": 0.15, "durationS": 12, "minIntensity": 2 }
   ],
   "modes": {
