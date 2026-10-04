@@ -32,6 +32,10 @@ data class ThemeDna(
     val haptics: HapticSpec = HapticSpec(),
     val layout: LayoutSpec = LayoutSpec(),
     val grade: GradeSpec = GradeSpec(),
+    /** How strongly clouds, rain and fog flatten the palette toward grey, 0..1. */
+    val overcast: Float = 1f,
+    /** Optional: hold the world at a fixed time of day and/or weather instead of following the clock. */
+    val pin: PinSpec = PinSpec(),
     val moments: List<MomentSpec> = emptyList(),
     val modes: Map<String, JsonObject> = emptyMap(),
     val requires: Requirements = Requirements(),
@@ -157,6 +161,9 @@ data class GradeSpec(
     val windScale: Float = 1f,
     val motionScale: Float = 1f,
 )
+
+@Serializable
+data class PinSpec(val t: Float? = null, val weather: String? = null)
 
 @Serializable
 data class MomentSpec(

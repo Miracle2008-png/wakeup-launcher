@@ -193,5 +193,6 @@
   "capabilities": [
    "weather"
   ]
- }
+ },
+ "overcast": 0.3
 }

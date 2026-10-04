@@ -81,6 +81,9 @@ object DnaValidator {
         if (t.layout.columns !in 3..6 || t.layout.rows !in 4..8 || t.layout.dock !in 3..6) err("layout", "columns 3..6, rows 4..8, dock 3..6")
         if (t.grade.cold !in -1f..1f || t.grade.fogBias !in -0.5f..0.5f || t.grade.windScale !in 0f..2f || t.grade.motionScale !in 0f..2f) err("grade", "values out of range")
 
+        t.pin.t?.let { if (it !in 0f..1f) err("pin.t", "0..1") }
+        t.pin.weather?.let { if (it !in Weather.PRESETS) err("pin.weather", "one of ${Weather.PRESETS.keys}") }
+        if (t.overcast !in 0f..1f) err("overcast", "0..1")
         t.moments.forEachIndexed { i, m ->
             val p = "moments[$i:${m.id}]"
             if (m.type !in MOMENTS) err(p, "unknown moment type")

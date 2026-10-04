@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">WakeUp</string>
+    <string name="wallpaper_label">WakeUp Living World</string>
+    <string name="wallpaper_description">Your current WakeUp theme as a living wallpaper</string>
+</resources>

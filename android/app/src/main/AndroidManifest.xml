@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Network is used only for deliberate actions: live weather (off by default) and an optional,
+         user-configured generation endpoint (off by default). No analytics, no ads, no tracking. -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- Requested at the moment the user adds the "Next" widget, never at install or first run. -->
+    <uses-permission android:name="android.permission.READ_CALENDAR" />
+
+    <uses-feature android:name="android.hardware.touchscreen" android:required="true" />
+    <uses-feature android:name="android.hardware.sensor.accelerometer" android:required="false" />
+
+    <!-- Package visibility is declared narrowly instead of requesting QUERY_ALL_PACKAGES. App discovery uses
+         LauncherApps; these intents only let first-run defaults find the user's chosen phone, browser, etc. -->
+    <queries>
+        <intent><action android:name="android.intent.action.MAIN" /><category android:name="android.intent.category.LAUNCHER" /></intent>
+        <intent><action android:name="android.intent.action.DIAL" /></intent>
+        <intent><action android:name="android.intent.action.SENDTO" /><data android:scheme="smsto" /></intent>
+        <intent><action android:name="android.intent.action.VIEW" /><data android:scheme="https" /></intent>
+        <intent><action android:name="android.media.action.IMAGE_CAPTURE" /></intent>
+        <intent><action android:name="android.settings.SETTINGS" /></intent>
+        <intent><action android:name="android.intent.action.MAIN" /><category android:name="android.intent.category.APP_EMAIL" /></intent>
+        <intent><action android:name="android.intent.action.MAIN" /><category android:name="android.intent.category.APP_MAPS" /></intent>
+        <intent><action android:name="android.intent.action.MAIN" /><category android:name="android.intent.category.APP_CALENDAR" /></intent>
+        <intent><action android:name="android.intent.action.MAIN" /><category android:name="android.intent.category.APP_GALLERY" /></intent>
+        <intent><action android:name="android.intent.action.MAIN" /><category android:name="android.intent.category.APP_MUSIC" /></intent>
+        <intent><action android:name="android.intent.action.MAIN" /><category android:name="android.intent.category.APP_MESSAGING" /></intent>
+    </queries>
+
+    <application
+        android:name=".WakeUpApp"
+        android:allowBackup="false"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="false"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.WakeUp">
+
+        <activity
+            android:name=".HomeActivity"
+            android:configChanges="orientation|screenSize|smallestScreenSize|screenLayout|keyboardHidden|keyboard|uiMode|density|fontScale|colorMode"
+            android:exported="true"
+            android:launchMode="singleTask"
+            android:resizeableActivity="true"
+            android:stateNotNeeded="true"
+            android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.HOME" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- Live wallpaper: the same declarative world renderer, for the system wallpaper surface. -->
+        <service
+            android:name=".wallpaper.WakeUpWallpaperService"
+            android:exported="true"
+            android:label="@string/wallpaper_label"
+            android:permission="android.permission.BIND_WALLPAPER">
+            <intent-filter>
+                <action android:name="android.service.wallpaper.WallpaperService" />
+            </intent-filter>
+            <meta-data android:name="android.service.wallpaper" android:resource="@xml/wallpaper" />
+        </service>
+    </application>
+</manifest>

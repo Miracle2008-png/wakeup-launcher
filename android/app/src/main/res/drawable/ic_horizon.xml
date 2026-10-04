@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Brand glyph: a sun resting on a horizon line. Original artwork. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp" android:height="108dp" android:viewportWidth="108" android:viewportHeight="108">
+    <path android:fillColor="#00000000" android:strokeColor="#F4EFE6" android:strokeWidth="3.2" android:strokeLineCap="round"
+        android:pathData="M30,64 L78,64" />
+    <path android:fillColor="#00000000" android:strokeColor="#F4EFE6" android:strokeWidth="3.2" android:strokeLineCap="round"
+        android:pathData="M38,64 A16,16 0 0 1 70,64" />
+    <path android:fillColor="#00000000" android:strokeColor="#E8B27A" android:strokeWidth="3.2" android:strokeLineCap="round"
+        android:pathData="M54,36 L54,41 M36.5,43 L40,46.5 M71.5,43 L68,46.5" />
+</vector>
