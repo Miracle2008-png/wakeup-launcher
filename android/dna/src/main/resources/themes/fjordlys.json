@@ -1,0 +1,388 @@
+{
+ "dna": "0.2",
+ "id": "fjordlys",
+ "name": "Fjordlys",
+ "version": 1,
+ "describe": "A Nordic lake from dusk into night, light rain, cabin lights.",
+ "provenance": {
+  "author": "WakeUp",
+  "license": "Proprietary, project original",
+  "source": "procedural, no third-party assets",
+  "generated": false
+ },
+ "intensity": {
+  "default": 2,
+  "ceiling": 3
+ },
+ "world": {
+  "span": 1.4,
+  "layers": [
+   {
+    "id": "sky",
+    "type": "sky",
+    "depth": 0.0,
+    "params": {
+     "topColor": "skyTop",
+     "bottomColor": "skyBot",
+     "height": 0.56
+    }
+   },
+   {
+    "id": "stars",
+    "type": "stars",
+    "depth": 0.05,
+    "params": {
+     "strengthValue": "stars",
+     "count": 110,
+     "seed": 21,
+     "region": 0.5
+    },
+    "reason": "Stars twinkle slowly so the night sky reads as deep, not painted.",
+    "minIntensity": 1
+   },
+   {
+    "id": "sun-moon",
+    "type": "glow",
+    "depth": 0.12,
+    "params": {
+     "color": "glow",
+     "radius": 300,
+     "horizon": 0.5,
+     "rise": 150,
+     "alpha": 0.5,
+     "x0": 0.15,
+     "x1": 0.85,
+     "tEnd": 0.62
+    }
+   },
+   {
+    "id": "clouds",
+    "type": "clouds",
+    "depth": 0.18,
+    "params": {
+     "count": 7,
+     "seed": 31,
+     "topColor": "skyTop",
+     "bottomColor": "skyBot",
+     "region": 0.5,
+     "alpha": 0.5,
+     "drift": 4
+    },
+    "reason": "Clouds drift with the wind so the weather has a visible direction.",
+    "wind": 0.8
+   },
+   {
+    "id": "far-ridge",
+    "type": "ridge",
+    "depth": 0.25,
+    "params": {
+     "color": "far",
+     "base": 0.455,
+     "amp": 70,
+     "freq": 0.006,
+     "seed": 3,
+     "hazeColor": "skyBot",
+     "haze": 0.35
+    }
+   },
+   {
+    "id": "forest",
+    "type": "ridge",
+    "depth": 0.45,
+    "params": {
+     "color": "mid",
+     "base": 0.52,
+     "amp": 34,
+     "freq": 0.01,
+     "seed": 8,
+     "trees": 1,
+     "fill": 0.6
+    },
+    "reason": "Pines sway with the wind so the shore feels inhabited by air.",
+    "wind": 0.6
+   },
+   {
+    "id": "lake",
+    "type": "water",
+    "depth": 0.55,
+    "params": {
+     "topColor": "waterBot",
+     "bottomColor": "waterTop",
+     "y": 0.545,
+     "mirror": "forest",
+     "mirrorAlpha": 0.32,
+     "shimmerColor": "glow",
+     "shimmer": 46
+    },
+    "reason": "Water drifts with the wind and reflects the sky, which makes the scene read as a place.",
+    "wind": 0.6,
+    "minIntensity": 1
+   },
+   {
+    "id": "cabin",
+    "type": "building",
+    "depth": 0.62,
+    "params": {
+     "color": "near",
+     "x": 1.05,
+     "y": 0.532,
+     "warmValue": "warm",
+     "lightColor": "glow"
+    }
+   },
+   {
+    "id": "ripples",
+    "type": "ripples",
+    "depth": 0.6,
+    "params": {
+     "color": "glow",
+     "yFrom": 0.575
+    },
+    "reason": "Ripples show where rain lands on the water.",
+    "minIntensity": 2
+   },
+   {
+    "id": "fog",
+    "type": "fog",
+    "depth": 0.5,
+    "params": {
+     "color": "skyBot",
+     "bands": 4,
+     "y": 0.4
+    },
+    "reason": "Fog density is the visible form of the weather vector.",
+    "wind": 0.8,
+    "minIntensity": 1
+   },
+   {
+    "id": "rain",
+    "type": "rain",
+    "depth": 0.9,
+    "params": {
+     "color": "glow",
+     "count": 150
+    },
+    "reason": "Rain shows the current weather and sets the sound mix.",
+    "wind": 1.0,
+    "minIntensity": 2
+   },
+   {
+    "id": "snow",
+    "type": "snow",
+    "depth": 0.9,
+    "params": {
+     "count": 110
+    },
+    "reason": "Snow falls only when the weather says so.",
+    "wind": 0.3,
+    "minIntensity": 1
+   },
+   {
+    "id": "shade",
+    "type": "vignette",
+    "depth": 1.0,
+    "params": {
+     "height": 0.3,
+     "alpha": 0.22
+    }
+   }
+  ]
+ },
+ "time": {
+  "keys": [
+   {
+    "t": 0,
+    "colors": {
+     "skyTop": "#8d9fb5",
+     "skyBot": "#f0cfae",
+     "far": "#8795a8",
+     "mid": "#46586a",
+     "near": "#2a3a42",
+     "waterTop": "#9fb0bf",
+     "waterBot": "#d9c4ae",
+     "glow": "#ffd7a8"
+    },
+    "values": {
+     "warm": 0,
+     "stars": 0.15
+    }
+   },
+   {
+    "t": 0.22,
+    "colors": {
+     "skyTop": "#9db8cf",
+     "skyBot": "#dce6ea",
+     "far": "#8fa5b6",
+     "mid": "#4f6b73",
+     "near": "#2f4a4a",
+     "waterTop": "#8fa9b9",
+     "waterBot": "#c7d6dc",
+     "glow": "#fff4dc"
+    },
+    "values": {
+     "warm": 0,
+     "stars": 0
+    }
+   },
+   {
+    "t": 0.48,
+    "colors": {
+     "skyTop": "#3e4c68",
+     "skyBot": "#d58f66",
+     "far": "#4a506a",
+     "mid": "#2c3445",
+     "near": "#1b2430",
+     "waterTop": "#4a5772",
+     "waterBot": "#c9855f",
+     "glow": "#ffb27a"
+    },
+    "values": {
+     "warm": 0.6,
+     "stars": 0.15
+    }
+   },
+   {
+    "t": 0.58,
+    "colors": {
+     "skyTop": "#141d33",
+     "skyBot": "#34405c",
+     "far": "#222c42",
+     "mid": "#141b2b",
+     "near": "#0c121d",
+     "waterTop": "#18233a",
+     "waterBot": "#2a3652",
+     "glow": "#7f93c0"
+    },
+    "values": {
+     "warm": 1,
+     "stars": 0.8
+    }
+   },
+   {
+    "t": 0.85,
+    "colors": {
+     "skyTop": "#080d18",
+     "skyBot": "#18233a",
+     "far": "#121a2b",
+     "mid": "#0b101c",
+     "near": "#060a12",
+     "waterTop": "#0b1220",
+     "waterBot": "#16213a",
+     "glow": "#5f74a8"
+    },
+    "values": {
+     "warm": 1,
+     "stars": 1
+    }
+   },
+   {
+    "t": 1,
+    "colors": {
+     "skyTop": "#8d9fb5",
+     "skyBot": "#f0cfae",
+     "far": "#8795a8",
+     "mid": "#46586a",
+     "near": "#2a3a42",
+     "waterTop": "#9fb0bf",
+     "waterBot": "#d9c4ae",
+     "glow": "#ffd7a8"
+    },
+    "values": {
+     "warm": 0,
+     "stars": 0.15
+    }
+   }
+  ]
+ },
+ "ui": {
+  "clock": {
+   "style": "cinematic",
+   "weight": 260
+  },
+  "materials": {
+   "clock": "air",
+   "widgets": "matte",
+   "dock": "frost",
+   "drawer": "matte"
+  },
+  "accent": "glow"
+ },
+ "motion": {
+  "page": "pan",
+  "reasons": {
+   "parallax": "Layers shift with the finger so depth is felt, not decorated."
+  }
+ },
+ "icons": {
+  "treatment": "light"
+ },
+ "sound": {
+  "ambient": "rain",
+  "volume": 0.5,
+  "interaction": false
+ },
+ "layout": {
+  "columns": 4,
+  "rows": 6,
+  "dock": 4
+ },
+ "moments": [
+  {
+   "id": "loons",
+   "type": "birds",
+   "cooldownMin": 40,
+   "probability": 0.1,
+   "durationS": 9,
+   "minIntensity": 2
+  },
+  {
+   "id": "cabin-on",
+   "type": "lights-on",
+   "cooldownMin": 1440,
+   "probability": 0.2,
+   "durationS": 6,
+   "minIntensity": 2
+  }
+ ],
+ "modes": {
+  "pure": {
+   "intensity": {
+    "default": 0,
+    "ceiling": 0
+   },
+   "ui": {
+    "materials": {
+     "dock": "matte"
+    }
+   }
+  },
+  "minimal": {
+   "intensity": {
+    "default": 1
+   }
+  },
+  "living": {},
+  "immersive": {
+   "intensity": {
+    "default": 3
+   }
+  },
+  "cinema": {
+   "intensity": {
+    "default": 3
+   }
+  },
+  "focus": {
+   "intensity": {
+    "default": 1
+   }
+  }
+ },
+ "requires": {
+  "capabilities": [
+   "weather",
+   "tilt",
+   "ambient-audio"
+  ]
+ }
+}

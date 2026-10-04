@@ -1,0 +1,381 @@
+{
+ "dna": "0.2",
+ "id": "salt-flat",
+ "name": "Salt Flat",
+ "version": 1,
+ "describe": "Desert dawn, long shadows, wind-blown dust.",
+ "provenance": {
+  "author": "WakeUp",
+  "license": "Proprietary, project original",
+  "source": "procedural, no third-party assets",
+  "generated": false
+ },
+ "intensity": {
+  "default": 2,
+  "ceiling": 3
+ },
+ "world": {
+  "span": 1.4,
+  "layers": [
+   {
+    "id": "sky",
+    "type": "sky",
+    "depth": 0.0,
+    "params": {
+     "topColor": "skyTop",
+     "bottomColor": "skyBot",
+     "height": 0.52
+    }
+   },
+   {
+    "id": "stars",
+    "type": "stars",
+    "depth": 0.05,
+    "params": {
+     "strengthValue": "stars",
+     "count": 110,
+     "seed": 21,
+     "region": 0.5
+    },
+    "reason": "Stars twinkle slowly so the night sky reads as deep, not painted.",
+    "minIntensity": 1
+   },
+   {
+    "id": "sun",
+    "type": "glow",
+    "depth": 0.1,
+    "params": {
+     "color": "glow",
+     "radius": 340,
+     "horizon": 0.5,
+     "rise": 190,
+     "alpha": 0.55,
+     "x0": 0.1,
+     "x1": 0.9,
+     "tEnd": 0.6
+    }
+   },
+   {
+    "id": "sun-disc",
+    "type": "disc",
+    "depth": 0.1,
+    "params": {
+     "color": "glow",
+     "radius": 15,
+     "horizon": 0.5,
+     "rise": 190,
+     "x0": 0.1,
+     "x1": 0.9,
+     "tEnd": 0.6,
+     "hideBelowValue": "stars"
+    }
+   },
+   {
+    "id": "clouds",
+    "type": "clouds",
+    "depth": 0.15,
+    "params": {
+     "count": 5,
+     "seed": 51,
+     "topColor": "skyTop",
+     "bottomColor": "skyBot",
+     "region": 0.5,
+     "alpha": 0.45,
+     "drift": 5
+    },
+    "reason": "Clouds drift with the wind so the weather has a visible direction.",
+    "wind": 0.8
+   },
+   {
+    "id": "dune-far",
+    "type": "ridge",
+    "depth": 0.3,
+    "params": {
+     "color": "dune0",
+     "base": 0.5,
+     "amp": 60,
+     "freq": 0.006,
+     "seed": 3,
+     "lit": 1,
+     "edgeColor": "glow",
+     "fill": 1.0
+    }
+   },
+   {
+    "id": "dune-mid",
+    "type": "ridge",
+    "depth": 0.55,
+    "params": {
+     "color": "dune1",
+     "base": 0.58,
+     "amp": 90,
+     "freq": 0.008,
+     "seed": 5,
+     "lit": 1,
+     "edgeColor": "glow",
+     "fill": 1.0
+    }
+   },
+   {
+    "id": "dune-near",
+    "type": "ridge",
+    "depth": 0.85,
+    "params": {
+     "color": "dune2",
+     "base": 0.67,
+     "amp": 120,
+     "freq": 0.011,
+     "seed": 9,
+     "lit": 1,
+     "edgeColor": "glow",
+     "fill": 1.0
+    }
+   },
+   {
+    "id": "heat",
+    "type": "shimmer",
+    "depth": 0.3,
+    "params": {
+     "color": "glow",
+     "y": 0.5
+    },
+    "reason": "Heat shimmer sits on the horizon and tells you the sun is strong.",
+    "minIntensity": 2
+   },
+   {
+    "id": "dust",
+    "type": "dust",
+    "depth": 0.7,
+    "params": {
+     "color": "glow",
+     "count": 70
+    },
+    "reason": "Dust blows with the wind so the flat feels open and dry.",
+    "wind": 1.0,
+    "minIntensity": 1
+   },
+   {
+    "id": "rain",
+    "type": "rain",
+    "depth": 0.9,
+    "params": {
+     "color": "glow",
+     "count": 110
+    },
+    "reason": "Rain shows the current weather.",
+    "wind": 1.0,
+    "minIntensity": 2
+   },
+   {
+    "id": "snow",
+    "type": "snow",
+    "depth": 0.9,
+    "params": {
+     "count": 100
+    },
+    "reason": "Snow falls only when the weather says so.",
+    "wind": 0.3,
+    "minIntensity": 1
+   },
+   {
+    "id": "fog",
+    "type": "fog",
+    "depth": 0.5,
+    "params": {
+     "color": "skyBot",
+     "bands": 3,
+     "y": 0.4
+    },
+    "reason": "Fog density is the visible form of the weather vector.",
+    "wind": 0.5,
+    "minIntensity": 1
+   },
+   {
+    "id": "shade",
+    "type": "vignette",
+    "depth": 1.0,
+    "params": {
+     "height": 0.28,
+     "alpha": 0.28
+    }
+   }
+  ]
+ },
+ "time": {
+  "keys": [
+   {
+    "t": 0,
+    "colors": {
+     "skyTop": "#6d7fa8",
+     "skyBot": "#f4b88a",
+     "dune0": "#c88f6a",
+     "dune1": "#a8704f",
+     "dune2": "#7d4f3a",
+     "glow": "#ffd9a0"
+    },
+    "values": {
+     "warm": 0,
+     "stars": 0.2
+    }
+   },
+   {
+    "t": 0.22,
+    "colors": {
+     "skyTop": "#8fb4d6",
+     "skyBot": "#f2e2c9",
+     "dune0": "#e0b88a",
+     "dune1": "#c99a6c",
+     "dune2": "#a67a52",
+     "glow": "#fff6dc"
+    },
+    "values": {
+     "warm": 0,
+     "stars": 0
+    }
+   },
+   {
+    "t": 0.48,
+    "colors": {
+     "skyTop": "#52507c",
+     "skyBot": "#f08d62",
+     "dune0": "#a8644a",
+     "dune1": "#7a4538",
+     "dune2": "#4a2c2c",
+     "glow": "#ffb27a"
+    },
+    "values": {
+     "warm": 0.4,
+     "stars": 0.2
+    }
+   },
+   {
+    "t": 0.58,
+    "colors": {
+     "skyTop": "#101830",
+     "skyBot": "#2c3050",
+     "dune0": "#2a2638",
+     "dune1": "#1d1a2a",
+     "dune2": "#12101c",
+     "glow": "#8d9ac8"
+    },
+    "values": {
+     "warm": 0.8,
+     "stars": 0.9
+    }
+   },
+   {
+    "t": 0.85,
+    "colors": {
+     "skyTop": "#070b18",
+     "skyBot": "#161a30",
+     "dune0": "#18141f",
+     "dune1": "#100d17",
+     "dune2": "#09070e",
+     "glow": "#6677aa"
+    },
+    "values": {
+     "warm": 1,
+     "stars": 1
+    }
+   },
+   {
+    "t": 1,
+    "colors": {
+     "skyTop": "#6d7fa8",
+     "skyBot": "#f4b88a",
+     "dune0": "#c88f6a",
+     "dune1": "#a8704f",
+     "dune2": "#7d4f3a",
+     "glow": "#ffd9a0"
+    },
+    "values": {
+     "warm": 0,
+     "stars": 0.2
+    }
+   }
+  ]
+ },
+ "ui": {
+  "clock": {
+   "style": "minimal",
+   "weight": 300
+  },
+  "materials": {
+   "clock": "air",
+   "widgets": "matte",
+   "dock": "frost",
+   "drawer": "matte"
+  },
+  "accent": "glow"
+ },
+ "motion": {
+  "page": "pan",
+  "reasons": {
+   "parallax": "Layers shift with the finger so depth is felt, not decorated."
+  }
+ },
+ "icons": {
+  "treatment": "light"
+ },
+ "sound": {
+  "ambient": "wind",
+  "volume": 0.45,
+  "interaction": false
+ },
+ "layout": {
+  "columns": 4,
+  "rows": 6,
+  "dock": 4
+ },
+ "moments": [
+  {
+   "id": "birds",
+   "type": "birds",
+   "cooldownMin": 45,
+   "probability": 0.1,
+   "durationS": 9,
+   "minIntensity": 2
+  }
+ ],
+ "modes": {
+  "pure": {
+   "intensity": {
+    "default": 0,
+    "ceiling": 0
+   },
+   "ui": {
+    "materials": {
+     "dock": "matte"
+    }
+   }
+  },
+  "minimal": {
+   "intensity": {
+    "default": 1
+   }
+  },
+  "living": {},
+  "immersive": {
+   "intensity": {
+    "default": 3
+   }
+  },
+  "cinema": {
+   "intensity": {
+    "default": 3
+   }
+  },
+  "focus": {
+   "intensity": {
+    "default": 1
+   }
+  }
+ },
+ "requires": {
+  "capabilities": [
+   "weather",
+   "tilt",
+   "ambient-audio"
+  ]
+ }
+}

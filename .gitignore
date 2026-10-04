@@ -1,0 +1,17 @@
+# build output
+build/
+.gradle/
+*.apk
+*.aab
+*.class
+# machine-specific and secret material: never commit
+local.properties
+*.jks
+*.keystore
+keystore.properties
+signing/
+.env
+*.pem
+# editor
+.idea/
+*.iml

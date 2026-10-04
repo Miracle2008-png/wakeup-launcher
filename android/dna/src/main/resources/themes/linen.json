@@ -1,0 +1,197 @@
+{
+ "dna": "0.2",
+ "id": "linen",
+ "name": "Linen",
+ "version": 1,
+ "describe": "Window light moving across a pale wall. The quiet default.",
+ "provenance": {
+  "author": "WakeUp",
+  "license": "Proprietary, project original",
+  "source": "procedural, no third-party assets",
+  "generated": false
+ },
+ "intensity": {
+  "default": 1,
+  "ceiling": 1
+ },
+ "world": {
+  "span": 1.12,
+  "layers": [
+   {
+    "id": "wall",
+    "type": "sky",
+    "depth": 0.0,
+    "params": {
+     "topColor": "wall",
+     "bottomColor": "wall2",
+     "height": 1.0
+    }
+   },
+   {
+    "id": "shutters",
+    "type": "beams",
+    "depth": 0.4,
+    "params": {
+     "color": "beam",
+     "alphaValue": "beamA",
+     "bars": 5
+    },
+    "reason": "Shutter light travels with the sun so the wall tells the hour."
+   },
+   {
+    "id": "breath",
+    "type": "washes",
+    "depth": 0.3,
+    "params": {
+     "color": "beam",
+     "alphaValue": "beamA"
+    },
+    "reason": "Two slow washes of light breathe so the surface never feels printed.",
+    "minIntensity": 1
+   },
+   {
+    "id": "rain",
+    "type": "rain",
+    "depth": 0.9,
+    "params": {
+     "color": "beam",
+     "count": 50,
+     "alpha": 0.12
+    },
+    "reason": "Faint rain on the window shows the weather without darkening the wall.",
+    "wind": 0.2,
+    "minIntensity": 1
+   },
+   {
+    "id": "shade",
+    "type": "vignette",
+    "depth": 1.0,
+    "params": {
+     "height": 0.2,
+     "alpha": 0.06
+    }
+   }
+  ]
+ },
+ "time": {
+  "keys": [
+   {
+    "t": 0,
+    "colors": {
+     "wall": "#e9dfd2",
+     "wall2": "#dcd1c3",
+     "beam": "#fff1d8"
+    },
+    "values": {
+     "beamA": 0.55
+    }
+   },
+   {
+    "t": 0.22,
+    "colors": {
+     "wall": "#f1ede6",
+     "wall2": "#e6e0d6",
+     "beam": "#fffaf0"
+    },
+    "values": {
+     "beamA": 0.85
+    }
+   },
+   {
+    "t": 0.48,
+    "colors": {
+     "wall": "#d6b49a",
+     "wall2": "#c4a088",
+     "beam": "#ffd2a0"
+    },
+    "values": {
+     "beamA": 0.6
+    }
+   },
+   {
+    "t": 0.58,
+    "colors": {
+     "wall": "#262a33",
+     "wall2": "#1d2028",
+     "beam": "#7f93c0"
+    },
+    "values": {
+     "beamA": 0.25
+    }
+   },
+   {
+    "t": 0.85,
+    "colors": {
+     "wall": "#14161c",
+     "wall2": "#101217",
+     "beam": "#6677aa"
+    },
+    "values": {
+     "beamA": 0.15
+    }
+   },
+   {
+    "t": 1,
+    "colors": {
+     "wall": "#e9dfd2",
+     "wall2": "#dcd1c3",
+     "beam": "#fff1d8"
+    },
+    "values": {
+     "beamA": 0.55
+    }
+   }
+  ]
+ },
+ "ui": {
+  "clock": {
+   "style": "minimal",
+   "weight": 300
+  },
+  "materials": {
+   "clock": "air",
+   "widgets": "matte",
+   "dock": "frost",
+   "drawer": "matte"
+  },
+  "accent": "beam"
+ },
+ "motion": {
+  "page": "slide",
+  "reasons": {
+   "parallax": "Layers shift with the finger so depth is felt, not decorated."
+  }
+ },
+ "icons": {
+  "treatment": "original"
+ },
+ "sound": {
+  "ambient": "none",
+  "volume": 0.3,
+  "interaction": false
+ },
+ "layout": {
+  "columns": 4,
+  "rows": 6,
+  "dock": 4
+ },
+ "modes": {
+  "pure": {
+   "intensity": {
+    "default": 0,
+    "ceiling": 0
+   }
+  },
+  "living": {},
+  "focus": {
+   "intensity": {
+    "default": 0
+   }
+  }
+ },
+ "requires": {
+  "capabilities": [
+   "weather"
+  ]
+ }
+}
