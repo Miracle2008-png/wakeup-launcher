@@ -1,0 +1,65 @@
+{
+  "dna": "0.1",
+  "id": "fjordlys",
+  "name": "Fjordlys",
+  "describe": "A Nordic lake from dusk into night, light rain, cabin lights.",
+  "intensity": { "default": 2, "ceiling": 3 },
+  "world": {
+    "span": 1.4,
+    "layers": [
+      { "id": "sky", "source": "shader", "parallax": 0.004, "lightResponse": 1 },
+      { "id": "far-ridge", "source": "bitmap", "ref": "ridge-far.avif", "parallax": 0.008, "lightResponse": 0.9 },
+      { "id": "mid-forest", "source": "bitmap", "ref": "forest-mid.avif", "parallax": 0.014, "wind": 0.2, "lightResponse": 0.7 },
+      { "id": "lake", "source": "shader", "parallax": 0.016, "wind": 0.6, "lightResponse": 1, "minIntensity": 1 },
+      { "id": "cabin", "source": "bitmap", "ref": "cabin.avif", "parallax": 0.02, "lightResponse": 0.5 },
+      { "id": "fog", "source": "shader", "parallax": 0.022, "wind": 0.8, "minIntensity": 1 },
+      { "id": "rain", "source": "particles", "parallax": 0.026, "wind": 1, "minIntensity": 2 }
+    ]
+  },
+  "time": {
+    "keys": [
+      { "t": 0.0, "key": "oklch(0.82 0.06 70)", "ambient": "oklch(0.70 0.04 240)", "warmth": 0.0, "sky": ["#c9d3dc", "#e8d9c6"] },
+      { "t": 0.5, "key": "oklch(0.90 0.02 95)", "ambient": "oklch(0.78 0.05 235)", "warmth": 0.0, "sky": ["#a9bccb", "#d3dbe0"] },
+      { "t": 0.74, "key": "oklch(0.72 0.11 45)", "ambient": "oklch(0.45 0.06 270)", "warmth": 0.6, "sky": ["#3b4a63", "#c98a62"] },
+      { "t": 0.9, "key": "oklch(0.40 0.04 255)", "ambient": "oklch(0.25 0.04 260)", "warmth": 1.0, "sky": ["#0f1826", "#24324a"] }
+    ]
+  },
+  "weather": {
+    "rain": { "layer": "rain", "gain": 1.0, "max": 0.8 },
+    "fog": { "layer": "fog", "gain": 1.0, "max": 0.9 },
+    "wind": { "layer": "lake", "gain": 0.7, "max": 1 }
+  },
+  "device": { "charging": "cabin-lights-soft-pulse", "batteryLow": "dim-world", "headphones": "ambient-up-3db", "focus": "mode:focus" },
+  "palette": { "ink": "oklch(0.96 0.01 90)", "surface": "oklch(0.26 0.03 255)", "accent": "oklch(0.78 0.12 65)", "grade": { "shadowHue": 255, "chromaCap": 0.12 } },
+  "type": {
+    "clock": { "family": "fraunces", "style": "cinematic", "weight": 260 },
+    "ui": { "family": "geist" }
+  },
+  "motion": {
+    "page": "pan",
+    "reasons": {
+      "lake": "Water drifts with wind so the scene reads as a place, not a picture.",
+      "fog": "Fog density is the visible form of the weather vector.",
+      "rain": "Rain shows the current weather and sets the sound mix.",
+      "parallax": "Layers shift with the finger so depth is felt, not decorated."
+    }
+  },
+  "materials": { "clock": "air", "widgets": "matte", "dock": "frost", "folder": "frost", "drawer": "matte" },
+  "icons": { "treatment": "light" },
+  "sound": { "ambient": "rain-lake-loop", "interaction": "wood-glass", "volume": 0.5, "whileLocked": false },
+  "haptics": { "tick": true, "settle": true, "confirm": true, "soft": true },
+  "layout": { "grid": [5, 6], "dock": 4 },
+  "moments": [
+    { "id": "loon-crosses", "trigger": "dusk", "cooldownMin": 40, "probability": 0.1, "durationS": 9, "minIntensity": 2 },
+    { "id": "cabin-lights-on", "trigger": "t>0.76", "cooldownMin": 1440, "probability": 0.2, "durationS": 6, "minIntensity": 2 },
+    { "id": "light-breaks-cloud", "trigger": "weather:clearing", "cooldownMin": 60, "probability": 0.15, "durationS": 12, "minIntensity": 2 }
+  ],
+  "modes": {
+    "pure": { "intensity": { "default": 0 }, "materials": { "dock": "matte" } },
+    "minimal": { "intensity": { "default": 1 } },
+    "living": {},
+    "immersive": { "intensity": { "default": 3 } },
+    "cinema": { "intensity": { "default": 4 } },
+    "focus": { "intensity": { "default": 1 } }
+  }
+}
